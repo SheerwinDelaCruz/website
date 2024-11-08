@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You Teachers</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 10px;
+            background-color: #442879;  
+            color: hsla(197, 84%, 55%, 0.87);
+            height: 100vh; 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-image: url(22.png);
+        }
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer; 
+            border: none; 
+            border-radius: 5px; 
+            background-color: #00b7ff; 
+            color: rgb(64, 24, 117); 
+            transition: background-color 0.3s; 
+            display: flex;
+            align-items: center;
+        }
+        button:hover {
+            background-color: #38cdfa; 
+        }
+        button img {
+            width: 30px; /* Adjust the width of the images */
+            height: 30px; /* Adjust the height of the images */
+            margin-right: 10px; /* Space between image and text */
+        }
+        #customMessage {
+            margin-top: 20px;
+            padding: 10px;
+            width: 300px;
+            border-radius: 5px; 
+            border: 1px solid #309e36bb; 
+        }
+    </style>
+</head>
+<body>
+    <h1>Happy Teachers Day!</h1>
+    <button onclick="thankTeacher('Jessa Tugas')">
+        <img src="WW.jpg" width="300" height="300" alt="Maam Jessa Tugas">Ma'am Tugas
+    </button>
+    <button onclick="thankTeacher('Marvin Zaraza')">
+        <img src="images/marvin.png width ="300" height="200" alt="Marvin Zaraza">Sir Zaraza
+    </button>
+    <button onclick="thankTeacher('Brayan Cabrido')">
+        <img src="images/brayan.png" alt="Brayan Cabrido">Sir Cabrido
+    </button>
+    <button onclick="thankTeacher('Edwin Pacia')">
+        <img src="images/edwin.png" alt="Edwin Pacia">Sir Pacia
+    </button>
+    <button onclick="thankTeacher('Albert Nobleza')">
+        <img src="images/albert.png" alt="Albert Nobleza">Sir Albert
+    </button>
+
+    <h2>Thank you to all Teachers hard working and always Inspiring us</h2>
+    <input type="text" id="customMessage" placeholder="Type your custom message here" />
+    <button onclick="sendCustomMessage()">Send Custom Message</button>
+
+    <audio id="clickSound" src="click-sound.mp3"></audio>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
+    <script>
+        function playSound() {
+            const sound = document.getElementById('clickSound');
+            sound.currentTime = 0; 
+            sound.play();
+        }
+
+        function thankTeacher(teacherName) {
+            playSound();
+            alert(`Thank you, ${teacherName}, for all your hard work!`);
+            confetti();
+        }
+
+        function sendCustomMessage() {
+            const message = document.getElementById('customMessage').value;
+            const teachers = ['Jessa Tugas', 'Marvin Zaraza', 'Brayan Cabrido'];
+            const randomTeacher = teachers[Math.floor(Math.random() * teachers.length)];
+            playSound();
+            alert(`Sending to ${randomTeacher}: ${message}`);
+            confetti();
+        }
+    </script>
+</body>
+</html>
